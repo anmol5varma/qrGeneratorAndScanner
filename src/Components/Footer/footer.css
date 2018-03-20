@@ -1,0 +1,11 @@
+.Footer{
+    display: flex;
+    flex-grow: 1;
+    background-color: rgb(50, 50, 50);
+    color: rgb(250, 250, 250);
+    padding: 8px;
+    font-size: 15px;
+}
+.Footer > span{
+    margin: auto;
+}

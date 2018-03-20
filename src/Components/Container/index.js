@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import initstore from '../../redux/stores';
+import QRCode from '../QRCode';
+import QRCodeReader from '../QRCodeReader';
 
-class Main extends React.Component {
+class Container extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-        <Container />
-        <Footer />
+      <div className="Container">
+        <QRCode />
+        <QRCodeReader />
       </div>
     );
   }
 }
 
-ReactDOM.render(<Provider store={initstore()}><Main /></Provider>, document.getElementById('root'));
+export default Container;

@@ -1,0 +1,11 @@
+.Header{
+    display: flex;
+    flex-grow: 1;
+    background-color: rgb(50, 50, 50);
+    color: rgb(250, 250, 250);
+    padding: 10px;
+    font-size: 30px;
+}
+.Header > span{
+    margin: auto;
+}

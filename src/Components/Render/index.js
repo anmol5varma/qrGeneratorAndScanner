@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import initstore from '../../redux/stores';
+import './render.css';
 import Header from '../Header';
 import Footer from '../Footer';
 import Container from '../Container';
@@ -9,7 +8,7 @@ import Container from '../Container';
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div className="Main-box">
         <Header />
         <Container />
         <Footer />
@@ -18,4 +17,4 @@ class Main extends React.Component {
   }
 }
 
-ReactDOM.render(<Provider store={initstore()}><Main /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
