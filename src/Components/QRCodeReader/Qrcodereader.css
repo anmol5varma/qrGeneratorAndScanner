@@ -1,18 +1,22 @@
-.Qrcode-generator{
+.Qrcode-reader{
     display: flex;
     flex: 1;
     flex-direction: column;
     border-right: 1px solid black;
 }
 
-.Qrcode{
-    width: 300px;
+.Qrcode-camera{
     height: 300px;
+    width: 300px;
     margin: 20px;
-    border: 2px solid rgb(50, 50, 50);
 }
 
-.Inputtext{
-    width: 20%;
+.Scanned-qr{
+    word-wrap: normal;
     margin: 20px;
+}
+
+.Gen-Heading{
+    margin: 20px;
+    font-size: 25px;
 }

@@ -5,7 +5,7 @@ const QRCode = require('qrcode');
 
 // const QRScanner = require('qrcode');
 
-class Footer extends React.Component {
+class QRCodeGenerator extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -22,16 +22,24 @@ class Footer extends React.Component {
           this.setState({
             code: string,
           });
-          console.log(string, '!!!');
+        });
+      } else {
+        this.setState({
+          code: '<div/>',
         });
       }
     };
     return (
-      <div>
+      <div className="Qrcode-generator">
+        <p className="Gen-Heading">QR code generator</p>
         <div className="Qrcode">
-          <div dangerouslySetInnerHTML={{ __html: this.state.code }} />
+          <div
+            className="NewQRCode"
+            dangerouslySetInnerHTML={{ __html: this.state.code }}
+          />
         </div>
         <input
+          className="Inputtext"
           type="text"
           onChange={(event) => {
             this.setState({
@@ -42,22 +50,8 @@ class Footer extends React.Component {
         }}
         />
       </div>
-    //   QRScanner.initiate({
-    //     match: /^[a-zA-Z0-9]{16,18}$/, // optional
-    //     onResult(result) { console.info('DONE: ', result); },
-    //     onError(err) { console.error('ERR :::: ', err); }, // optional
-    //     onTimeout() { console.warn('TIMEDOUT'); }, // optional
-    //   })
     );
   }
 }
 
-// Footer.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   redirectBack: PropTypes.func,
-// };
-
-// Footer.defaultProps = {
-//   redirectBack: '',
-// };
-export default Footer;
+export default QRCodeGenerator;

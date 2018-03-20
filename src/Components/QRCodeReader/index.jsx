@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import QrReader from 'react-qr-reader';
-import './Qrcode.css';
+import './Qrcodereader.css';
 
 class Test extends Component {
   constructor(props) {
@@ -9,35 +9,34 @@ class Test extends Component {
       delay: 300,
       result: 'No result',
     };
-    this.handleScan = this.handleScan.bind(this);
-  }
-  handleScan(data) {
-    if (data) {
-      this.setState({
-        result: data,
-      });
-      alert(data);
-    }
-  }
-  handleError(err) {
-    console.error(err);
   }
 
   render() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      return (
-        <div className="Qrcode">
+    const handleScan = (data) => {
+      if (data) {
+        this.setState({
+          result: data,
+        });
+        alert(data);
+      }
+    };
+    const handleError = (err) => {
+      console.error(err);
+    };
+    return (
+      <div className="Qrcode-reader">
+        <p className="Gen-Heading">QR code scanner</p>
+        <div className="Qrcode-camera">
           <QrReader
             delay={this.state.delay}
-            onError={this.handleError}
-            onScan={this.handleScan}
+            onError={handleError}
+            onScan={handleScan}
             style={{ width: '100%' }}
           />
-          <p>{this.state.result}</p>
         </div>
-      );
-    }
-    return (<div>Erro</div>);
+        <p className="Scanned-qr">{this.state.result}</p>
+      </div>
+    );
   }
 }
 export default Test;
